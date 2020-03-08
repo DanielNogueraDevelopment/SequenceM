@@ -1,3 +1,3 @@
-# SequenceMath
+# SequenceM
 A easy and fast way of dealing with mathematical sequences
-Visit danielnoguera.com/SequenceM/docs for documentation
+Visit <a href="https://danielnoguera.com/SequenceM/docs">danielnoguera.com/SequenceM/docs for documentation</a>

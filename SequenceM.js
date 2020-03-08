@@ -5,21 +5,21 @@
  *  Copyright (c) 2020 Daniel Noguera danielnoguera.com
  *  MIT Licence
  */
-function Sequence(seq, more) {
+function Sequence(seq, options) {
   this.seq = seq;
-  this.more = more;
-  this.data=this.more.data;
+  this.options = options;
+  this.data=this.options.data;
   this.type="custom";
   this.cache = [];
-    if (this.more) {
-      if (this.more.initial != undefined) {
-        this.cache[0] = this.more.initial;
+    if (this.options) {
+      if (this.options.initial != undefined) {
+        this.cache[0] = this.options.initial;
       }
-      if (this.more.values != undefined) {
-        this.cache = this.more.values;
+      if (this.options.values != undefined) {
+        this.cache = this.options.values;
       }
-  if (this.more.preload && this.more.preload >= 1) {
-        for (var i = this.cache.length; i <= this.more.preload.length; i++) {
+  if (this.options.preload && this.options.preload >= 1) {
+        for (var i = this.cache.length; i <= this.options.preload.length; i++) {
           this.cache[i] = this.seq(i, this.cache[i - 1]);
         }
       } else {
@@ -35,10 +35,10 @@ function Sequence(seq, more) {
       if(this.cache[n] != undefined){
         return this.cache[n];
       }else{
-      if (this.more) {
+      if (this.options) {
 
 
-        if (this.more.recursive) {
+        if (this.options.recursive) {
           //is recursive function!
 
           if (this.cache.length > n) {
@@ -48,16 +48,22 @@ function Sequence(seq, more) {
               this.cache[i] = this.seq(i, this.cache[i - 1], this.cache);
             }
             var result = this.cache[n]
-            if(more.cache==false){
+            if(options.cache==false){
               this.cache=[];
             }
             return result;
           }
         } else {
-          return this.seq(n);
+          var result = this.seq(n);
+          if(this.options.cache != false){
+            this.cache[n]=result;
+          }
+          return result;
         }
       } else {
-        return this.seq(n);
+        var result = this.seq(n);
+        this.cache[n]=result;
+        return result;
       }
     }
   }else{
@@ -155,30 +161,4 @@ function GeometricSequence(base,multiply){
 //Lazy Caterer's sequence var c=new Sequence(function(a){return (Math.pow(a,2)+a+2)/2})
 //Natural Numbers (including zero) var n=new Sequence(0,1)
 //Natural Numbers (excluding zero) var n=new Sequence(1,1)
-//Arithmetic Hypersequence function ahs(f,s) {return new Sequence(function(a){return new Sequence(function(b){return a+b}).get(s)}).get(f)}
-//Multiplicative Hypersequence function ahs(f,s) {return new Sequence(function(a){return new Sequence(function(b){return a*b}).get(s)}).get(f)}
-//Subtraction Hypersequence function ahs(f,s) {return new Sequence(function(a){return new Sequence(function(b){return a-b}).get(s)}).get(f)}
-//Division Hypersequence function ahs(f,s) {return new Sequence(function(a){return new Sequence(function(b){return a/b}).get(s)}).get(f)}
 //function tetrate(f,s) {return Math.pow(f, new Sequence(function(a,b){return Math.pow(b, f)},{recursive:true, initial:f}).get(s-2))}
-//
-//
-//
-//
-//
-//
-//
-// var p=new Sequence(function(a){
-//   var num=1; count=0; i;
-//   while (count < a) {
-//     num=num+1;
-//     for (var i = 2; i <= num; i++) {
-//       if(num % i==0){
-//         break;
-//       }
-//     }
-//     if(i == num){
-//       count=count+1
-//     }
-//   }
-//   return num;
-// })

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Daniel Noguera Development</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/styles/dnss.css">
+  <meta charset="utf-8">
+  <meta name="description" content="Daniel Noguera Development">
+  <meta name="keywords" content="DanielNoguera Daniel Noguera Development">
+  <link rel="shortcut icon" type="image/png" href="/logo.png" />
+</head>
+
+<body>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function() {
+
+
+    })
+    //COLORS:
+  </script>
+
+
+  <nav class="navbar navbar-pills fixed-top navbar-dark navbar-expand-lg dnav">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse">
+      <ul class="nav nav-pills mr-auto mt-2 mt-lg-0 navbar-nav">
+        <a class="nav-link" id="cb" href="/development">
+          <li class="nav-item">
+            Development
+          </li>
+        </a>
+        <a class="nav-link nav-active" id="cb" href="/projects">
+          <li class="nav-item">
+            Projects
+          </li>
+        </a>
+          <a class="nav-link" id="cb" href="/contact">
+            <li class="nav-item">
+              Contact
+            </li>
+          </a>
+
+      </ul>
+    </div>
+    <a href="/login" style="color:white;">
+    <button class="btn btn-info" style="float:right;">
+      Login
+    </button>
+    </a>
+  </nav>
+
+  <div class="container">
+<h3 class="display-3 text-center">SequenceM</h3>
+<p class="text-center">SequenceM is a small JavaScript library for dealing with Sequences.  SequenceM is great for dealing with arithmetic, geometric, and custom sequences.</p><br><h5>Key Features:</h5><ul class=" mx-auto"><li>Define Sequences without loading any elements</li><li>Simple but powerful recursion</li><li>Automatic caching to load sequence elements only once.</li><li>Built-in Summation function</li></ul><p class="text-center">If you want to define mathematical sequences easily and quickly  <a href="https://danielnoguera.com/SequenceM/docs">check out the documentation.</a> Or <a href="https://danielnoguera.com/SequenceM/docs#examples">check out some cool examples of what SequenceM can do for you!</a><br>Feel free to use it however you like.</p>
+<a href="https://danielnoguera.com/SequenceM/docs#arithmetic">Click here for Arithmetic Sequences</a><br>
+<a href="https://danielnoguera.com/SequenceM/docs#geometric">Click here for Geometric Sequences</a>
+<br><br><h2>Custom Sequences</h3>
+Define a Sequence like this:
+<code>var sequence = new Sequence()</code>
+The Sequence function accepts 2 arguments, the function for determining every element in the sequence and extra options.
+The function must return a value.  This value can be determined by any way you like.  The function is given 3 arguments to use.
+The first argument is the position in the sequence that is being requested.<br>  <i>The next two elements are only provided if the "recursive" option is set to true.</i>  The second argument is the value of the previous element in the sequence.  The third element is all the cached values of the sequence in order.<br>
+<h5>Options</h5>
+When creating a Sequence, the second argument is the options object.  <br>
+<hr>
+<h3>Options Object Properties:</h3><br>
+<h5>"recursive"</h5>
+Setting the recursive option to true will force the sequence to load all previous elements, it will also provide the main function with the value of the previous element and the list of all cached elements.
+<hr>
+<h5>"inital"</h5>
+The 0th element of the sequence will be cached as this value.
+<hr>
+<h5>"values"</h5>
+Values is a array.  It initially sets the cache.
+<hr>
+<h5>"preload"</h5>
+The Sequence will cache all elements from 0 to the preload value.
+<hr>
+<h5>"cache"</h5>
+Setting cache to false will disable caching.  I don't advise using this option because it can hurt performance, especially with recursive functions.
+<hr>
+<h3>Sequence Methods:</h3><br>
+<h3>.get()</h3>
+Every sequence has the .get() function.  It accepts 1 OR 2 arguments.  If you provide 1 argument, it will return the value of that element.  If you provide 2 arguments, it will return a array containing all the values from the first argument to the second argument (Inclusive to both arguments.  The array contains empty values for all values from 0 to the first argument.)<br>
+<h3>.sum()</h3>
+Every sequence also has the .sum() function.   It accepts 1 OR 2 arguments.  If you provide 1 argument, it will return the value of all elements from 0 too the argument (inclusive to 0 and the argument).  If you provide 2 arguments, it will return the value of all elements from the first argument to the second argument (inclusive to both)<br>
+<h3>.set()</h3>
+<b>.set() does not work on Arithmetic or Geometric sequences, or sequences with caching disabled.</b>  It accepts 2 arguments.  The first argument specifies the element in cache to set.(use a number)  The second argument is the value to set the element to.
+<h3>.load()</h3>
+<b>.load() does not work on Arithmetic or Geometric sequences, or sequences with caching disabled.</b>  It accepts 1 OR 2 arguments.  If one argument is provided, the corresponding element is loaded into memory.  If a second argument is proveded, all elements from the first element to the second element are loaded into memory (inclusive to both arguments)<br>
+<br>
+<h2>Arithmetic and Geometric Sequences</h2>
+Both Arithmetic and Geometric sequences are HIGHLY optimized.  Whenever you can, use them.  Their summation function is dramatically more efficient.
+<div class="container" id="arithmetic">They are created by using the ArithmeticSequence() function.
+Arithmetic sequences require 2 arguments, the base and the difference.  The 0th element is the base and all elements are the difference more than the previous element.(subtraction works)<br>
+<div class="container" id="geometric">.  They are created by using the GeometricSequence() function.
+Arithmetic sequences require 2 arguments, the base and the ratio.  The 0th element is the base and all elements are the ratio times more than the previous element.(fractions work)<br>
+</div>
+<h3>Examples:</h3>
+<code id="examples">
+//all whole numbers factorialized<br>
+var factorial=new Sequence(function(a,b){return a*b}, {recursive:true, initial:1})<br>
+//The Fibonacci Sequence<br>
+var fibonacci = new Sequence(function(a,b,c){return c[a-2]+b}, {values:[0,1], recursive:true})<br>
+//Lazy Caterer's sequence <br>
+var caterer=new Sequence(function(a){return (Math.pow(a,2)+a+2)/2})<br>
+//Tetration (hyper-4 operation) function (only works with whole numbers)<br>
+function tetrate(f,s) {return Math.pow(f, new Sequence(function(a,b){return Math.pow(b, f)},{recursive:true, initial:f}).get(s-2))}<br>
+//All natural numbers including zero<br>
+var natural=new ArithmeticSequence(0,1)<br>
+</code>
+<hr>
+<a href="https://github.com/DanielNogueraDevelopment/SequenceM"><h5>The Github page</h5></a>
+<br>
+<br>
+</div>
+
+</body>

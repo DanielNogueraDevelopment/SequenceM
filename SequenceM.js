@@ -8,7 +8,9 @@
 function Sequence(seq, options) {
   this.seq = seq;
   this.options = options;
-  this.data=this.options.data;
+  try{this.data=this.options.data;}catch(e){
+    //NO OPTIONS
+  }
   this.type="custom";
   this.cache = [];
     if (this.options) {
@@ -93,7 +95,7 @@ function Sequence(seq, options) {
       }else{
         var returner=0;
         if(this.cache.length==0){
-          throw "You require arguments for the sum function if no values are this.cached yet!";
+          throw "You require arguments for the sum function if no values are cached yet!";
         }
         var pl=this.cache.length;
         for (var i = 0; i < pl; i++) {
@@ -155,10 +157,3 @@ function GeometricSequence(base,multiply){
 
   }
 }
-
-//FACTORIAL: var factorial=new Sequence(function(a,b){return a*b}, {recursive:true, initial:1})
-//FIBONACCI: var f = new Sequence(function(a,b,c){return c[a-2]+b}, {values:[0,1], recursive:true})
-//Lazy Caterer's sequence var c=new Sequence(function(a){return (Math.pow(a,2)+a+2)/2})
-//Natural Numbers (including zero) var n=new Sequence(0,1)
-//Natural Numbers (excluding zero) var n=new Sequence(1,1)
-//function tetrate(f,s) {return Math.pow(f, new Sequence(function(a,b){return Math.pow(b, f)},{recursive:true, initial:f}).get(s-2))}

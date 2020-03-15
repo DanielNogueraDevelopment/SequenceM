@@ -109,15 +109,15 @@ Arithmetic sequences require 2 arguments, the base and the ratio.  The 0th eleme
 <h3>Examples:</h3>
 <code id="examples">
 //all whole numbers factorialized<br>
-var factorial=new Sequence(function(a,b){return a*b}, {recursive:true, initial:1})<br>
+var factorial=new Sequence(function(a,b){return a*b}, {recursive:true, initial:1})<br><br>
 //The Fibonacci Sequence<br>
-var fibonacci = new Sequence(function(a,b,c){return c[a-2]+b}, {values:[0,1], recursive:true})<br>
+var fibonacci = new Sequence(function(a,b,c){return c[a-2]+b}, {values:[0,1], recursive:true})<br><br>
 //Lazy Caterer's sequence <br>
-var caterer=new Sequence(function(a){return (Math.pow(a,2)+a+2)/2})<br>
-//Tetration (hyper-4 operation) function (only works with whole numbers)<br>
+var caterer=new Sequence(function(a){return (Math.pow(a,2)+a+2)/2})<br><br>
+//Tetration (hyper-4 operation) function (only works with whole numbers)<br><br>
 function tetrate(f,s) {return Math.pow(f, new Sequence(function(a,b){return Math.pow(b, f)},{recursive:true, initial:f}).get(s-2))}<br>
-//All natural numbers including zero<br>
-var natural=new ArithmeticSequence(0,1)<br>
+//All natural numbers including zero<br><br>
+var natural=new ArithmeticSequence(0,1)<br><br>
 </code>
 <hr>
 <a href="https://github.com/DanielNogueraDevelopment/SequenceM"><h5>The Github page</h5></a>

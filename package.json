@@ -1,6 +1,6 @@
 {
   "name": "sequencem",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A library for dealing with Sequences easily and quickly",
   "main": "SequenceMnpm.js",
   "scripts": {
@@ -25,5 +25,5 @@
   "bugs": {
     "url": "https://github.com/DanielNogueraDevelopment/SequenceM/issues"
   },
-  "homepage": "https://github.com/DanielNogueraDevelopment/SequenceM#readme"
+  "homepage": "https://danielnoguera.com/SequenceM/docs"
 }

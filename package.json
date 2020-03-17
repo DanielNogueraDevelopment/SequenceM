@@ -1,0 +1,29 @@
+{
+  "name": "sequencem",
+  "version": "1.0.0",
+  "description": "A library for dealing with Sequences easily and quickly",
+  "main": "SequenceMnpm.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielNogueraDevelopment/SequenceM.git"
+  },
+  "keywords": [
+    "Sequence",
+    "Math",
+    "SequenceM",
+    "Arithmetic",
+    "Geometric",
+    "Tetrate",
+    "Fibonacci",
+    "Factorial"
+  ],
+  "author": "Daniel Noguera",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DanielNogueraDevelopment/SequenceM/issues"
+  },
+  "homepage": "https://github.com/DanielNogueraDevelopment/SequenceM#readme"
+}
